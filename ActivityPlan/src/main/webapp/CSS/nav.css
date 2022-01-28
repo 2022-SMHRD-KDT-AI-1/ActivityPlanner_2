@@ -1,0 +1,201 @@
+@charset "UTF-8";
+
+/* 상단메뉴 css */
+#menubar {
+  position: fixed;
+  width: 100%;
+  height: 50px;
+  background: rgb(249, 249, 252);
+  color: rgb(2, 2, 2);
+  text-align: center;
+  top: 0;
+  left: 0;
+  border-style: solid solid solid solid;
+  border-width: 1px 1px 30px 1px;
+  border-color: black black skyblue black;
+  z-index: 2;
+}
+.logo-wrap {
+  padding-top: 10px;
+}
+.logo-wrap img {
+  width: 140px;
+  height: 70px;
+}
+.search {
+  background-image: url();
+  margin-right: 180px;
+  margin-top: 50px;
+}
+.result {
+  margin-bottom: 100px;
+}
+.logout {
+  text-align: right;
+  margin-top: 40px;
+  margin-right: 100px;
+  font-family: sans-serif;
+  font-weight: bold;
+  color: gray;
+}
+ul {
+  list-style-type: none;
+  margin-top: 50px;
+  padding: 0;
+  background-color: rgb(249, 249, 252);
+}
+ul:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+li {
+  float: left;
+}
+li a {
+  display: block;
+  color: gray;
+  text-align: center;
+  padding: 14px 90px 14px 90px;
+  text-decoration: none;
+}
+li a:hover:not(.active) {
+  color: orange;
+}
+.menu {
+  background-color: white;
+}
+
+/* 검색창 */
+.search-form {
+  position: relative;
+  top: 30%;
+  left: 50%;
+  width: 500px;
+  height: 40px;
+  border-radius: 40px;
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+  transform: translate(-50%, -50%);
+  background: #fff;
+  transition: all 0.3s ease;
+}
+.search-form.focus {
+  box-shadow: 0 3px 4px rgba(0, 0, 0, 0.15);
+}
+
+.search-input {
+  position: absolute;
+  top: 10px;
+  left: 38px;
+  font-size: 14px;
+  background: none;
+  color: #5a6674;
+  width: 400px;
+  height: 20px;
+  border: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  outline: none;
+}
+.search-input::-webkit-search-cancel-button {
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.search-button {
+  position: absolute;
+  top: 10px;
+  left: 15px;
+  height: 20px;
+  width: 20px;
+  padding: 0;
+  margin: 0;
+  border: none;
+  background: none;
+  outline: none !important;
+  cursor: pointer;
+}
+.search-button svg {
+  width: 20px;
+  height: 20px;
+  fill: #5a6674;
+}
+
+.search-option {
+  position: absolute;
+  text-align: right;
+  top: 10px;
+  right: 15px;
+}
+.search-option div {
+  position: relative;
+  display: inline-block;
+  margin: 0 1px;
+  cursor: pointer;
+}
+.search-option div input {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0.01;
+  cursor: pointer;
+}
+.search-option div span {
+  position: absolute;
+  display: block;
+  text-align: center;
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 0;
+  background: #929aa3;
+  color: #fff;
+  font-size: 9px;
+  letter-spacing: 1px;
+  line-height: 1;
+  text-transform: uppercase;
+  padding: 4px 7px;
+  border-radius: 12px;
+  top: -18px;
+  transition: all 0.2s ease-in-out;
+}
+.search-option div span::after {
+  content: "";
+  position: absolute;
+  bottom: -3px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-top: 4px solid #929aa3;
+  border-left: 4px solid transparent;
+  border-right: 4px solid transparent;
+  transition: all 0.2s ease-in-out;
+}
+.search-option div:hover span {
+  opacity: 1;
+  top: -21px;
+}
+.search-option div label {
+  display: block;
+  cursor: pointer;
+}
+.search-option div svg {
+  height: 20px;
+  width: 20px;
+  fill: #5a6674;
+  opacity: 0.6;
+  transition: all 0.2s ease-in-out;
+  pointer-events: none;
+}
+.search-option div:hover svg {
+  opacity: 1;
+}
+.search-option div input:checked + label svg {
+  fill: #e24040;
+  opacity: 0.9;
+}
+.search-option div input:checked + label span {
+  background: #e24040;
+}
+.search-option div input:checked + label span::after {
+  border-top-color: #e24040;
+}
