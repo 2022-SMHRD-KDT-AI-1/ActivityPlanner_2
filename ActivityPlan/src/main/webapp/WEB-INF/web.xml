@@ -28,6 +28,12 @@
   	<description></description>
   	<servlet-class>Controller.ModifyService</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>SearchService</servlet-name>
+  	<display-name>SearchService</display-name>
+  	<description></description>
+  	<servlet-class>Controller.SearchService</servlet-class>
+  </servlet>
   <servlet-mapping>
   	<servlet-name>JoinService</servlet-name>
   	<url-pattern>/JoinService</url-pattern>
@@ -43,5 +49,9 @@
   <servlet-mapping>
   	<servlet-name>ModifyService</servlet-name>
   	<url-pattern>/ModifyService</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>SearchService</servlet-name>
+  	<url-pattern>/SearchService</url-pattern>
   </servlet-mapping>
 </web-app>

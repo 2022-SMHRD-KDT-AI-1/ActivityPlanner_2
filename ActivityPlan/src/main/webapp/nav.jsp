@@ -30,6 +30,7 @@
               value=""
               placeholder="Search"
               class="search-input"
+              name="search-input"
             />
             <button type="submit" class="search-button">
               <svg class="submit-button">

@@ -1,0 +1,11 @@
+@charset "UTF-8";
+	#result {
+		position: absolute;
+		top: 500px;
+	}
+    .menu {
+      background-color: white;
+    }
+    .image {
+      margin-right: 100px;
+    }
