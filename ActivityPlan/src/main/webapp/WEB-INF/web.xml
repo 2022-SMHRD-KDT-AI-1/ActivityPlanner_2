@@ -4,4 +4,44 @@
 
 <web-app>
   <display-name>Archetype Created Web Application</display-name>
+  <servlet>
+  	<servlet-name>JoinService</servlet-name>
+  	<display-name>JoinService</display-name>
+  	<description></description>
+  	<servlet-class>Controller.JoinService</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>JoinSerivce</servlet-name>
+  	<display-name>JoinSerivce</display-name>
+  	<description></description>
+  	<servlet-class>Controller.JoinSerivce</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>LoginService</servlet-name>
+  	<display-name>LoginService</display-name>
+  	<description></description>
+  	<servlet-class>Controller.LoginService</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>ModifyService</servlet-name>
+  	<display-name>ModifyService</display-name>
+  	<description></description>
+  	<servlet-class>Controller.ModifyService</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>JoinService</servlet-name>
+  	<url-pattern>/JoinService</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>JoinSerivce</servlet-name>
+  	<url-pattern>/JoinSerivce</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>LoginService</servlet-name>
+  	<url-pattern>/LoginService</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>ModifyService</servlet-name>
+  	<url-pattern>/ModifyService</url-pattern>
+  </servlet-mapping>
 </web-app>
