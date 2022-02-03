@@ -31,15 +31,15 @@ if(info!=null){
       <tr>
         <td>
           <div class="logo-wrap">
-            <img src="timeB로고.svg" id="logo" />
+            <a href="main.jsp"><img src="timeB로고.svg" id="logo" /></a>
           </div>
         </td>
         <td>
-          <ul id>
+          <ul>
             <li><a class="menubar" name="hibit" href="list.jsp?type=0">공모전</a></li>
-            <li><a name="work" href="list.jsp?type=1">봉사활동</a></li>
-            <li><a name="speech" href="list.jsp?type=3">강연</a></li>
-            <li><a name="intern" href="list.jsp?type=2">인턴</a></li>
+            <li><a class="menubar" name="work" href="list.jsp?type=1">봉사활동</a></li>
+            <li><a class="menubar" name="speech" href="list.jsp?type=3">강연</a></li>
+            <li><a class="menubar" name="intern" href="list.jsp?type=2">인턴</a></li>
           </ul>
         </td>
         <td>

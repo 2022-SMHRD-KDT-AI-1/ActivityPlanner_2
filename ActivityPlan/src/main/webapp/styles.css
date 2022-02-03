@@ -6,7 +6,7 @@ body {
   margin: 0;
   padding: 0 7%;
 }
-
+/* 
 a,
 a:link,
 a:visited,
@@ -15,7 +15,7 @@ a:hover {
   text-decoration: none;
   color: white;
   font-weight: bold;
-}
+} */
 a:hover {
   text-decoration: underline;
 }
@@ -110,6 +110,7 @@ ol li {
 ul {
 }
 ul li {
+	list-style:none;
   margin-bottom: 0;
 }
 /* ------------------------------------------------------------------------- */
@@ -236,7 +237,7 @@ div.maincontent {
   color: gray;
   /*display: none;*/
 }
-/* 상단메뉴 css */
+/* 상단메뉴 css *//* 
 #menubar {
   position: fixed;
   width: 100%;
@@ -301,9 +302,9 @@ li a:hover:not(.active) {
 .menu {
   background-color: white;
 }
-
+ */
 /* 검색창 */
-.search-form {
+/* .search-form {
   position: relative;
   top: 30%;
   left: 50%;
@@ -435,3 +436,4 @@ li a:hover:not(.active) {
 .search-option div input:checked + label span::after {
   border-top-color: #e24040;
 }
+ */

@@ -1,35 +1,37 @@
+<%@page import="Model.ActivityDTO"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="Model.ActivityDAO"%>
+<%@page import="java.util.Random"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="kor">
-  <head>
-  <meta charset="utf-8">
-    <link rel="stylesheet" hrefmainPage.css="" />
-    <link
-      rel="stylesheet"
-      title="Standard"
-      href="styles.css"
-      type="text/css"
-      media="screen"
-    />
+<head>
+<meta charset="utf-8">
+	<!-- <link rel="stylesheet" hrefmainPage.css="" /> -->
+	<link rel="stylesheet" title="Standard" href="styles.css"
+		type="text/css" media="screen" />
 
-    <script
-      language="JavaScript"
-      type="text/javascript"
-      src="contentflow.js"
-    ></script>
-    <script tyle="text/javascript">
-      var cf = new ContentFlow("contentFlow", { reflectionColor: "#000000" });
-    </script>
-    <script tyle="text/javascript">
-      var cf = new ContentHelp("contenthelp", { reflectionColor: "#000000" });
-    </script>
-  </head>
+	<script language="JavaScript" type="text/javascript"
+		src="contentflow.js"></script>
+	<script tyle="text/javascript">
+		var cf = new ContentFlow("contentFlow", {
+			reflectionColor : "#000000"
+		});
+	</script>
+	<script tyle="text/javascript">
+		var cf = new ContentHelp("contenthelp", {
+			reflectionColor : "#000000"
+		});
+	</script>
+</head>
 
-  <body>
-  <%@include file="nav.jsp"%>
-
-<!--     <table id="menubar">
+<body>
+	<%@include file="nav.jsp"%>
+	<%
+		Random rd = new Random();
+	%>
+	<!--     <table id="menubar">
       <tr>
         <td>
           <div class="logo-wrap">
@@ -111,279 +113,327 @@
       </tr>
       <br />
     </table> -->
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <div id="extra">
-      "당신을 위한 대외활동이 준비되어 있습니다."<img
-        src="arrow.png"
-        id="arrow"
-      />
-    </div>
+	<br />
+	<br />
+	<br />
+	<br />
+	<br />
+	<br />
+	<br />
+	<br />
+	<br />
+	<div id="extra">
+		"당신을 위한 대외활동이 준비되어 있습니다."<img src="arrow.png" id="arrow" />
+	</div>
 
-    <h3 href="#" style="color: gray">추천 공모전</h3>
+	<h3 href="#" style="color: gray">추천 공모전</h3>
+	<%
+		ActivityDAO dao = new ActivityDAO();
+	ArrayList<ActivityDTO> c_list = dao.showList("0"); // 공모전 랜덤
+	ArrayList<ActivityDTO> v_list = dao.showList("1"); // 봉사활동 랜덤
+	ArrayList<ActivityDTO> i_list = dao.showList("2"); // 인턴 랜덤
+	ArrayList<ActivityDTO> l_list = dao.showList("3"); // 강연 랜덤
+	%>
+	<!-- ===== FLOW ===== -->
+	<div id="contentFlow" class="ContentFlow">
+		<!-- should be place before flow so that contained images will be loaded first -->
+		<div class="loadIndicator">
+			<div class="indicator"></div>
+		</div>
 
-    <!-- ===== FLOW ===== -->
-    <div id="contentFlow" class="ContentFlow">
-      <!-- should be place before flow so that contained images will be loaded first -->
-      <div class="loadIndicator">
-        <div class="indicator"></div>
-      </div>
+		<!-- 
+(int) Math.random() * (최댓값-최소값+1) + 최소값
 
-      <div class="flow">
-        <div class="item">
-          <img class="content" src="pics/pic1.jpg" />
-          <div class="caption">pic0: some stripes</div>
-        </div>
-        <div class="item">
-          <img class="content" src="pics/pic1.jpg" />
-          <div class="caption">pic1: some stripes</div>
-        </div>
-        <div class="item">
-          <img class="content" src="pics/pic2.jpg" />
-          <div class="caption">pic2: some stripes</div>
-        </div>
-        <div class="item">
-          <img class="content" src="pics/pic1.jpg" />
-          <div class="caption">pic1: some stripes</div>
-        </div>
+예시) 1 ~ 12까지의 랜덤 숫자
+(int) (Math.random() * 12) + 1
 
-        <div class="item">
-          <img class="content" src="pics/pic3.jpg" />
-          <div class="caption">pic0: some stripes</div>
-        </div>
-        <div class="item">
-          <img class="content" src="pics/pic1.jpg" />
-          <div class="caption">pic1: some stripes</div>
-        </div>
-        <div class="item">
-          <img class="content" src="pics/pic2.jpg" />
-          <div class="caption">pic2: some stripes</div>
-        </div>
-        <div class="item">
-          <img class="content" src="pics/pic1.jpg" />
-          <div class="caption">pic1: some stripes</div>
-        </div>
+예시) 12 ~ 24까지의 랜덤 숫자 10가지 출력
+(int) (Math.random() * 13) + 12 
+-->
+		<div class="flow">
+			<%
+				for (int i = 0; i < 10; i++) {
+				int j = (int) (Math.random() * 100);
+			%>
+			<div class="item">
+				<img class="content" src="<%=c_list.get(j).getAct_poster()%>" />
+				<div class="caption"><%=c_list.get(j).getAct_name()%></div>
+			</div>
+			<%
+				}
+			%>
+			<!-- 			<div class="item">
+				<img class="content" src="pics/pic1.jpg" />
+				<div class="caption">pic1: some stripes</div>
+			</div>
+			<div class="item">
+				<img class="content" src="pics/pic2.jpg" />
+				<div class="caption">pic2: some stripes</div>
+			</div>
+			<div class="item">
+				<img class="content" src="pics/pic1.jpg" />
+				<div class="caption">pic1: some stripes</div>
+			</div>
 
-        <div class="item">
-          <img class="content" src="pics/pic3.jpg" />
-          <div class="caption">pic0: some stripes</div>
-        </div>
-        <div class="item">
-          <img class="content" src="pics/pic1.jpg" />
-          <div class="caption">pic1: some stripes</div>
-        </div>
-        <div class="item">
-          <img class="content" src="pics/pic2.jpg" />
-          <div class="caption">pic2: some stripes</div>
-        </div>
-        <div class="item">
-          <img class="content" src="pics/pic1.jpg" />
-          <div class="caption">pic1: some stripes</div>
-        </div>
-      </div>
-      <div class="globalCaption"></div>
-      <div class="scrollbar">
-        <div class="slider"><div class="position"></div></div>
-      </div>
-    </div>
-    <br />
+			<div class="item">
+				<img class="content" src="pics/pic3.jpg" />
+				<div class="caption">pic0: some stripes</div>
+			</div>
+			<div class="item">
+				<img class="content" src="pics/pic1.jpg" />
+				<div class="caption">pic1: some stripes</div>
+			</div>
+			<div class="item">
+				<img class="content" src="pics/pic2.jpg" />
+				<div class="caption">pic2: some stripes</div>
+			</div>
+			<div class="item">
+				<img class="content" src="pics/pic1.jpg" />
+				<div class="caption">pic1: some stripes</div>
+			</div>
 
-    <!-- ----봉사활동===== -->
-    <h3 href="#" style="color: gray">추천 봉사활동</h3>
-    <div id="contentFlow" class="ContentFlow">
-      <!-- should be place before flow so that contained images will be loaded first -->
+			<div class="item">
+				<img class="content" src="pics/pic3.jpg" />
+				<div class="caption">pic0: some stripes</div>
+			</div>
+			<div class="item">
+				<img class="content" src="pics/pic1.jpg" />
+				<div class="caption">pic1: some stripes</div>
+			</div>
+			<div class="item">
+				<img class="content" src="pics/pic2.jpg" />
+				<div class="caption">pic2: some stripes</div>
+			</div>
+			<div class="item">
+				<img class="content" src="pics/pic1.jpg" />
+				<div class="caption">pic1: some stripes</div>
+			</div> -->
+		</div>
+		<div class="globalCaption"></div>
+		<div class="scrollbar">
+			<div class="slider">
+				<div class="position"></div>
+			</div>
+		</div>
+	</div>
+	<br />
 
-      <div class="flow">
-        <div class="item">
-          <img class="content" src="pics/pic1.jpg" />
-          <div class="caption">pic0: some stripes</div>
-        </div>
-        <div class="item">
-          <img class="content" src="pics/pic1.jpg" />
-          <div class="caption">pic1: some stripes</div>
-        </div>
-        <div class="item">
-          <img class="content" src="pics/pic2.jpg" />
-          <div class="caption">pic2: some stripes</div>
-        </div>
-        <div class="item">
-          <img class="content" src="pics/pic1.jpg" />
-          <div class="caption">pic1: some stripes</div>
-        </div>
+	<!-- ----봉사활동===== -->
+	<h3 href="#" style="color: gray">추천 봉사활동</h3>
+	<div id="contentFlow" class="ContentFlow">
+		<!-- should be place before flow so that contained images will be loaded first -->
 
-        <div class="item">
-          <img class="content" src="pics/pic3.jpg" />
-          <div class="caption">pic0: some stripes</div>
-        </div>
-        <div class="item">
-          <img class="content" src="pics/pic1.jpg" />
-          <div class="caption">pic1: some stripes</div>
-        </div>
-        <div class="item">
-          <img class="content" src="pics/pic2.jpg" />
-          <div class="caption">pic2: some stripes</div>
-        </div>
-        <div class="item">
-          <img class="content" src="pics/pic1.jpg" />
-          <div class="caption">pic1: some stripes</div>
-        </div>
+		<div class="flow">
+			<%
+				for (int i = 0; i < 10; i++) {
+				int j = (int) (Math.random() * 65);
+			%>
+			<div class="item">
+				<img class="content" src="<%=v_list.get(j).getAct_poster()%>" />
+				<div class="caption"><%=v_list.get(j).getAct_name()%></div>
+			</div>
+			<%
+				}
+			%>
+			<!-- <div class="item">
+				<img class="content" src="pics/pic1.jpg" />
+				<div class="caption">pic1: some stripes</div>
+			</div>
+			<div class="item">
+				<img class="content" src="pics/pic2.jpg" />
+				<div class="caption">pic2: some stripes</div>
+			</div>
+			<div class="item">
+				<img class="content" src="pics/pic1.jpg" />
+				<div class="caption">pic1: some stripes</div>
+			</div>
 
-        <div class="item">
-          <img class="content" src="pics/pic3.jpg" />
-          <div class="caption">pic0: some stripes</div>
-        </div>
-        <div class="item">
-          <img class="content" src="pics/pic1.jpg" />
-          <div class="caption">pic1: some stripes</div>
-        </div>
-        <div class="item">
-          <img class="content" src="pics/pic2.jpg" />
-          <div class="caption">pic2: some stripes</div>
-        </div>
-        <div class="item">
-          <img class="content" src="pics/pic1.jpg" />
-          <div class="caption">pic1: some stripes</div>
-        </div>
-      </div>
-      <div class="globalCaption"></div>
-      <div class="scrollbar">
-        <div class="slider"><div class="position"></div></div>
-      </div>
-    </div>
-    <br />
+			<div class="item">
+				<img class="content" src="pics/pic3.jpg" />
+				<div class="caption">pic0: some stripes</div>
+			</div>
+			<div class="item">
+				<img class="content" src="pics/pic1.jpg" />
+				<div class="caption">pic1: some stripes</div>
+			</div>
+			<div class="item">
+				<img class="content" src="pics/pic2.jpg" />
+				<div class="caption">pic2: some stripes</div>
+			</div>
+			<div class="item">
+				<img class="content" src="pics/pic1.jpg" />
+				<div class="caption">pic1: some stripes</div>
+			</div>
 
-    <!-- 강연 -->
-    <h3 href="#" style="color: gray">추천 강연</h3>
-    <div id="contentFlow" class="ContentFlow">
-      <!-- should be place before flow so that contained images will be loaded first -->
+			<div class="item">
+				<img class="content" src="pics/pic3.jpg" />
+				<div class="caption">pic0: some stripes</div>
+			</div>
+			<div class="item">
+				<img class="content" src="pics/pic1.jpg" />
+				<div class="caption">pic1: some stripes</div>
+			</div>
+			<div class="item">
+				<img class="content" src="pics/pic2.jpg" />
+				<div class="caption">pic2: some stripes</div>
+			</div>
+			<div class="item">
+				<img class="content" src="pics/pic1.jpg" />
+				<div class="caption">pic1: some stripes</div>
+			</div> -->
+		</div>
+		<div class="globalCaption"></div>
+		<div class="scrollbar">
+			<div class="slider">
+				<div class="position"></div>
+			</div>
+		</div>
+	</div>
+	<br />
 
-      <div class="flow">
-        <div class="item">
-          <img class="content" src="pics/pic1.jpg" />
-          <div class="caption">pic0: some stripes</div>
-        </div>
-        <div class="item">
-          <img class="content" src="pics/pic1.jpg" />
-          <div class="caption">pic1: some stripes</div>
-        </div>
-        <div class="item">
-          <img class="content" src="pics/pic2.jpg" />
-          <div class="caption">pic2: some stripes</div>
-        </div>
-        <div class="item">
-          <img class="content" src="pics/pic1.jpg" />
-          <div class="caption">pic1: some stripes</div>
-        </div>
+	<!-- 강연 -->
+	<h3 href="#" style="color: gray">추천 강연</h3>
+	<div id="contentFlow" class="ContentFlow">
+		<!-- should be place before flow so that contained images will be loaded first -->
 
-        <div class="item">
-          <img class="content" src="pics/pic3.jpg" />
-          <div class="caption">pic0: some stripes</div>
-        </div>
-        <div class="item">
-          <img class="content" src="pics/pic1.jpg" />
-          <div class="caption">pic1: some stripes</div>
-        </div>
-        <div class="item">
-          <img class="content" src="pics/pic2.jpg" />
-          <div class="caption">pic2: some stripes</div>
-        </div>
-        <div class="item">
-          <img class="content" src="pics/pic1.jpg" />
-          <div class="caption">pic1: some stripes</div>
-        </div>
+		<div class="flow">
+			<%
+				for (int i = 0; i < 10; i++) {
+				int j = (int) (Math.random() * 69);
+			%>
+			<div class="item">
+				<img class="content" src="<%=l_list.get(j).getAct_poster()%>" />
+				<div class="caption"><%=l_list.get(j).getAct_name()%></div>
+			</div>
+			<%
+				}
+			%>
+			<!-- 			<div class="item">
+				<img class="content" src="pics/pic1.jpg" />
+				<div class="caption">pic1: some stripes</div>
+			</div>
+			<div class="item">
+				<img class="content" src="pics/pic2.jpg" />
+				<div class="caption">pic2: some stripes</div>
+			</div>
+			<div class="item">
+				<img class="content" src="pics/pic1.jpg" />
+				<div class="caption">pic1: some stripes</div>
+			</div>
 
-        <div class="item">
-          <img class="content" src="pics/pic3.jpg" />
-          <div class="caption">pic0: some stripes</div>
-        </div>
-        <div class="item">
-          <img class="content" src="pics/pic1.jpg" />
-          <div class="caption">pic1: some stripes</div>
-        </div>
-        <div class="item">
-          <img class="content" src="pics/pic2.jpg" />
-          <div class="caption">pic2: some stripes</div>
-        </div>
-        <div class="item">
-          <img class="content" src="pics/pic1.jpg" />
-          <div class="caption">pic1: some stripes</div>
-        </div>
-      </div>
-      <div class="globalCaption"></div>
-      <div class="scrollbar">
-        <div class="slider"><div class="position"></div></div>
-      </div>
-    </div>
+			<div class="item">
+				<img class="content" src="pics/pic3.jpg" />
+				<div class="caption">pic0: some stripes</div>
+			</div>
+			<div class="item">
+				<img class="content" src="pics/pic1.jpg" />
+				<div class="caption">pic1: some stripes</div>
+			</div>
+			<div class="item">
+				<img class="content" src="pics/pic2.jpg" />
+				<div class="caption">pic2: some stripes</div>
+			</div>
+			<div class="item">
+				<img class="content" src="pics/pic1.jpg" />
+				<div class="caption">pic1: some stripes</div>
+			</div>
 
-    <br />
-    <!-- 인턴 -->
-    <h3 href="#" style="color: gray">추천 인턴활동</h3>
-    <div id="contentFlow" class="ContentFlow">
-      <!-- should be place before flow so that contained images will be loaded first -->
+			<div class="item">
+				<img class="content" src="pics/pic3.jpg" />
+				<div class="caption">pic0: some stripes</div>
+			</div>
+			<div class="item">
+				<img class="content" src="pics/pic1.jpg" />
+				<div class="caption">pic1: some stripes</div>
+			</div>
+			<div class="item">
+				<img class="content" src="pics/pic2.jpg" />
+				<div class="caption">pic2: some stripes</div>
+			</div>
+			<div class="item">
+				<img class="content" src="pics/pic1.jpg" />
+				<div class="caption">pic1: some stripes</div>
+			</div> -->
+		</div>
+		<div class="globalCaption"></div>
+		<div class="scrollbar">
+			<div class="slider">
+				<div class="position"></div>
+			</div>
+		</div>
+	</div>
 
-      <div class="flow">
-        <div class="item">
-          <img class="content" src="pics/pic1.jpg" />
-          <div class="caption">pic0: some stripes</div>
-        </div>
-        <div class="item">
-          <img class="content" src="pics/pic1.jpg" />
-          <div class="caption">pic1: some stripes</div>
-        </div>
-        <div class="item">
-          <img class="content" src="pics/pic2.jpg" />
-          <div class="caption">pic2: some stripes</div>
-        </div>
-        <div class="item">
-          <img class="content" src="pics/pic1.jpg" />
-          <div class="caption">pic1: some stripes</div>
-        </div>
+	<br />
+	<!-- 인턴 -->
+	<h3 href="#" style="color: gray">추천 인턴활동</h3>
+	<div id="contentFlow" class="ContentFlow">
+		<!-- should be place before flow so that contained images will be loaded first -->
 
-        <div class="item">
-          <img class="content" src="pics/pic3.jpg" />
-          <div class="caption">pic0: some stripes</div>
-        </div>
-        <div class="item">
-          <img class="content" src="pics/pic1.jpg" />
-          <div class="caption">pic1: some stripes</div>
-        </div>
-        <div class="item">
-          <img class="content" src="pics/pic2.jpg" />
-          <div class="caption">pic2: some stripes</div>
-        </div>
-        <div class="item">
-          <img class="content" src="pics/pic1.jpg" />
-          <div class="caption">pic1: some stripes</div>
-        </div>
+		<div class="flow">
+			<%
+				for (int i = 0; i < 10; i++) {
+				int j = (int) (Math.random() * 100) ;
+			%>
+			<div class="item">
+				<img class="content" src="<%=i_list.get(j).getAct_poster()%>" />
+				<div class="caption"><%=i_list.get(j).getAct_name()%></div>
+			</div>
+			<%
+				}
+			%>
+			<div class="item">
+				<img class="content" src="pics/pic1.jpg" />
+				<div class="caption">pic1: some stripes</div>
+			</div>
+			<div class="item">
+				<img class="content" src="pics/pic2.jpg" />
+				<div class="caption">pic2: some stripes</div>
+			</div>
+			<div class="item">
+				<img class="content" src="pics/pic1.jpg" />
+				<div class="caption">pic1: some stripes</div>
+			</div>
 
-        <div class="item">
-          <img class="content" src="pics/pic3.jpg" />
-          <div class="caption">pic0: some stripes</div>
-        </div>
-        <div class="item">
-          <img class="content" src="pics/pic1.jpg" />
-          <div class="caption">pic1: some stripes</div>
-        </div>
-        <div class="item">
-          <img class="content" src="pics/pic2.jpg" />
-          <div class="caption">pic2: some stripes</div>
-        </div>
-        <div class="item">
-          <img class="content" src="pics/pic1.jpg" />
-          <div class="caption">pic1: some stripes</div>
-        </div>
-      </div>
-      <div class="globalCaption"></div>
-      <div class="scrollbar">
-        <div class="slider"><div class="position"></div></div>
-      </div>
-    </div>
-  </body>
+			<div class="item">
+				<img class="content" src="pics/pic3.jpg" />
+				<div class="caption">pic0: some stripes</div>
+			</div>
+			<div class="item">
+				<img class="content" src="pics/pic1.jpg" />
+				<div class="caption">pic1: some stripes</div>
+			</div>
+			<div class="item">
+				<img class="content" src="pics/pic2.jpg" />
+				<div class="caption">pic2: some stripes</div>
+			</div>
+			<div class="item">
+				<img class="content" src="pics/pic1.jpg" />
+				<div class="caption">pic1: some stripes</div>
+			</div>
+
+			<div class="item">
+				<img class="content" src="pics/pic3.jpg" />
+				<div class="caption">pic0: some stripes</div>
+			</div>
+			<div class="item">
+				<img class="content" src="pics/pic1.jpg" />
+				<div class="caption">pic1: some stripes</div>
+			</div>
+			<div class="item">
+				<img class="content" src="pics/pic2.jpg" />
+				<div class="caption">pic2: some stripes</div>
+			</div>
+			<div class="item">
+				<img class="content" src="pics/pic1.jpg" />
+				<div class="caption">pic1: some stripes</div>
+			</div>
+		</div>
+		<div class="globalCaption"></div>
+		<div class="scrollbar">
+			<div class="slider">
+				<div class="position"></div>
+			</div>
+		</div>
+	</div>
+</body>
 </html>

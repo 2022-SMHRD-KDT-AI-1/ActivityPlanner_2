@@ -2,17 +2,17 @@ package Model;
 
 public class ActivityDTO {
 	private int act_seq;
-	private String act_type;
-	private String act_name;
-	private String act_sdate;
-	private String act_edate;
-	private String act_intro;
-	private String act_benefits;
-	private String act_center;
-	private String act_money;
-	private String act_category;
-	private String act_homepage;
-	private String act_poster;
+	private String act_type; // 공모전, 인턴, 강연, 봉사활동
+	private String act_name; // 이름
+	private String act_sdate; // 시작날짜
+	private String act_edate; // 끝 날짜
+	private String act_intro; // 소개
+	private String act_benefits; // 혜택
+	private String act_center; // 주최,주관
+	private String act_money; // 상금
+	private String act_category; //분야
+	private String act_homepage; //홈페이지
+	private String act_poster; // 포스터
 	
 	
 	

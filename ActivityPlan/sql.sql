@@ -71,6 +71,7 @@ INCREMENT BY 1;
 insert into tbl_user values('admin','123','관리자','01000000000','M','1900-01-01','A','0',sysdate,'Y');
 
 select * from tbl_user;
+select act_seq, act_type from tbl_acting;
 
 
 CREATE TABLE tbl_my_acting
