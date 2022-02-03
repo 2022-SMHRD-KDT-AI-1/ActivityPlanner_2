@@ -23,7 +23,7 @@
 				<div class="button" style="text-align: center;">
 					<button>로그인</button>
 				</div>
-				<p class="forget-msg">아이디찾기 | 비밀번호찾기 | <a href="회원가입.html">회원가입</a></p>
+				<p class="forget-msg"><a href="findAcoount.jsp">아이디찾기</a> | 비밀번호찾기 | <a href="signUp.jsp">회원가입</a></p>
 			</form>
 		</div>
 	</div>

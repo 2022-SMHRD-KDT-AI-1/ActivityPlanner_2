@@ -29,6 +29,7 @@
 <body>
 	<%@include file="nav.jsp"%>
 	<%
+		
 		Random rd = new Random();
 
 	%>
@@ -383,7 +384,7 @@
 			<%
 				}
 			%>
-			<div class="item">
+<!-- 			<div class="item">
 				<img class="content" src="pics/pic1.jpg" />
 				<div class="caption">pic1: some stripes</div>
 			</div>
@@ -429,7 +430,7 @@
 				<img class="content" src="pics/pic1.jpg" />
 				<div class="caption">pic1: some stripes</div>
 			</div>
-		</div>
+		</div> -->
 		<div class="globalCaption"></div>
 		<div class="scrollbar">
 			<div class="slider">
