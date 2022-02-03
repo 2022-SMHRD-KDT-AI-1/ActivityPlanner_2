@@ -34,6 +34,24 @@
   	<description></description>
   	<servlet-class>Controller.SearchService</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>ListService</servlet-name>
+  	<display-name>ListService</display-name>
+  	<description></description>
+  	<servlet-class>Controller.ListService</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>BoardService</servlet-name>
+  	<display-name>BoardService</display-name>
+  	<description></description>
+  	<servlet-class>Controller.ListService</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>showListService</servlet-name>
+  	<display-name>showListService</display-name>
+  	<description></description>
+  	<servlet-class>Controller.showListService</servlet-class>
+  </servlet>
   <servlet-mapping>
   	<servlet-name>JoinService</servlet-name>
   	<url-pattern>/JoinService</url-pattern>
@@ -53,5 +71,17 @@
   <servlet-mapping>
   	<servlet-name>SearchService</servlet-name>
   	<url-pattern>/SearchService</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>ListService</servlet-name>
+  	<url-pattern>/ListService</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>BoardService</servlet-name>
+  	<url-pattern>/BoardService</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>showListService</servlet-name>
+  	<url-pattern>/showListService</url-pattern>
   </servlet-mapping>
 </web-app>

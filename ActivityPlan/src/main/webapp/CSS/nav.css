@@ -6,7 +6,7 @@
   width: 100%;
   height: 50px;
   background: rgb(249, 249, 252);
-  color: rgb(2, 2, 2);
+  color: gray;
   text-align: center;
   top: 0;
   left: 0;
@@ -38,6 +38,14 @@
   font-weight: bold;
   color: gray;
 }
+.login2 {
+  text-align: right;
+  margin-top: 40px;
+  margin-right: 100px;
+  font-family: sans-serif;
+  font-weight: bold;
+  color: gray;
+}
 ul {
   list-style-type: none;
   margin-top: 50px;
@@ -51,13 +59,14 @@ ul:after {
 }
 li {
   float: left;
+  color: gray;
 }
 li a {
   display: block;
   color: gray;
   text-align: center;
   padding: 14px 90px 14px 90px;
-  text-decoration: none;
+  /* /* text-decoration: none; */ */
 }
 li a:hover:not(.active) {
   color: orange;

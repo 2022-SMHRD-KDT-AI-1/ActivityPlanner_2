@@ -1,3 +1,4 @@
+<%@page import="Model.MemberDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -8,6 +9,24 @@
 <link rel="stylesheet" href="./CSS/nav.css">
 </head>
 <body>
+<%
+/* //로그인 한 정보 불러오기
+MemberDTO info = (MemberDTO)session.getAttribute("info");
+
+//메시지 불러오기
+
+MessageDAO dao = new MessageDAO();
+ArrayList<MessageDTO> list_message = new ArrayList<MessageDTO>();
+
+if(info!=null){
+	list_message = dao.showMessage(info.getEmail());
+}
+
+*/
+ 
+ 	MemberDTO info = (MemberDTO)session.getAttribute("info");
+
+%>
 	<table id="menubar">
       <tr>
         <td>
@@ -17,10 +36,10 @@
         </td>
         <td>
           <ul id>
-            <li><a class="menubar" name="hibit">공모전</a></li>
-            <li><a name="work">봉사활동</a></li>
-            <li><a name="speech">강연</a></li>
-            <li><a name="intern">인턴</a></li>
+            <li><a class="menubar" name="hibit" href="list.jsp?type=0">공모전</a></li>
+            <li><a name="work" href="list.jsp?type=1">봉사활동</a></li>
+            <li><a name="speech" href="list.jsp?type=3">강연</a></li>
+            <li><a name="intern" href="list.jsp?type=2">인턴</a></li>
           </ul>
         </td>
         <td>
@@ -86,7 +105,14 @@
           </svg>
         </td>
         <td>
-          <div class="logout" name="logout">로그아웃 / 내정보</div>
+        <%if(info != null){ %>
+          <div class="logout" name="logout">
+          	<a href="logoutService">로그아웃</a> / <a href="modify.jsp">내정보</a></div>
+          <%}else{ %>
+          	<div class="login2" name="login2">
+          		<a href="login.jsp">로그인</a>
+          	</div>
+          <%} %>
         </td>
       </tr>
       <br />

@@ -53,4 +53,40 @@ public class ActivityDAO {
 			close();
 		}return list;
 	}
+
+	public ArrayList<ActivityDTO> showList(String type){
+		ArrayList<ActivityDTO> list = new ArrayList<ActivityDTO>();
+		try {
+			conn();
+			
+			String sql = "select * from tbl_acting where act_type = ?";
+			
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, type);
+			
+			rs = psmt.executeQuery();
+			
+			while(rs.next()) {
+				int num = rs.getInt("act_seq");
+				String name = rs.getString("act_name");
+				String poster = rs.getString("act_poster");
+//				String writer = rs.getString(3);
+//				String fileName = rs.getString(4);
+//				String content = rs.getString(5);
+//				String b_date = rs.getString(6);
+//				
+//				BoardDTO dto = new BoardDTO(num, title, writer, fileName, content, b_date);
+				ActivityDTO dto = new ActivityDTO(num, name, poster);
+				list.add(dto);
+				
+				
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+		return list;
+		
+	}
 }
