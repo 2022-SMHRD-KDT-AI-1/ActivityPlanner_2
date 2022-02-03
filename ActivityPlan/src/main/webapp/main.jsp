@@ -30,7 +30,9 @@
 	<%@include file="nav.jsp"%>
 	<%
 		Random rd = new Random();
+
 	%>
+	
 	<!--     <table id="menubar">
       <tr>
         <td>
