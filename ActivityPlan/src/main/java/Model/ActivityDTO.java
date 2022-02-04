@@ -16,7 +16,6 @@ public class ActivityDTO {
 	
 	
 	
-	
 	public ActivityDTO(int act_seq, String act_name, String act_poster) {
 		super();
 		this.act_seq = act_seq;

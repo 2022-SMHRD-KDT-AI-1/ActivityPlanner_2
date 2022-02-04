@@ -36,10 +36,30 @@
 
 			<!--   <hr align-text="right" width="1800" size="2" color="black" /> -->
 			<h1 style="text-align: center;">
-			<%if(type.equals("0")){%>
-				공모전
-			<%} %>
-			
+				<%
+					switch (type) {
+					case "0" :
+				%>
+						공모전
+				<%
+						break;
+					case "1" :
+				%>
+						봉사활동
+				<%
+						break;
+					case "2":
+				%>
+						인턴
+				<%
+						break;
+					case "3":
+				%>
+						강연
+				<%
+					}
+				%>
+
 			</h1>
 			<hr align-text="right" width="2000" size="2" color="skyblue" />
 
@@ -51,11 +71,11 @@
 						<div class="jss129"
 							style="position: relative; overflow: hidden; display: flex; flex-direction: column; justify-content: center; align-items: left; height: 20%;">
 							<!-- 								&gt; -->
-
+<!-- 
 							<div
 								style="position: absolute; top: 0px; left: 0px; width: 100%; height: 100%; background: white; transition: opacity 0.3s ease 0s; opacity: 0;"></div>
 							<div class="MuiBox-root jss231 jss225 jss226">
-								<!-- 		<svg class="MuiSvgIcon-root jss227" focusable="false"
+ -->								<!-- 		<svg class="MuiSvgIcon-root jss227" focusable="false"
 										viewBox="0 0 12 16" aria-hidden="true"
 										xmlns="http://www.w3.org/2000/svg" width="12" height="16">
                       <path fill="currentColor"
@@ -68,30 +88,29 @@
 									<%
 										for (int i = 0; i < b_list.size(); i++) {
 									%>
-										<% 
-											if(i % 5 == 0) {
-										%>
-										<tr>
+									<%
+										if (i % 5 == 0) {
+									%>
+									<tr>
 										<%
 											}
 										%>
-										<td><div class="poster"><a href="#"><img
-												alt="<%=b_list.get(i).getAct_name()%>"
-												src="<%=b_list.get(i).getAct_poster()%>" sizes="100vw"
-												style="height: 300px; width: 45%; visibility: visible; display: block;"
-											
-												div="" />
-												</a>
-												</div>
-												<div class="subject">
-												<p><%=b_list.get(i).getAct_name() %></p>
-												</div></td>
+										<td><div class="poster">
+												<a href="detail.jsp?act_seq=<%=b_list.get(i).getAct_seq()%>"><img alt="<%=b_list.get(i).getAct_name()%>"
+													src="<%=b_list.get(i).getAct_poster()%>" sizes="100vw"
+													style="height: 300px; width: 45%; visibility: visible; display: block;"
+													div="" /> </a>
+											</div>
+											<div class="subject">
+												<p><a href="detail.jsp?act_seq=<%=b_list.get(i).getAct_seq()%>"><%=b_list.get(i).getAct_name()%></a></p>
+											</div></td>
 										<%
 											if (i % 5 == 4) {
 										%>
-											</tr>
-										<%
-											} %>
+									</tr>
+									<%
+										}
+									%>
 									<%
 										}
 									%>

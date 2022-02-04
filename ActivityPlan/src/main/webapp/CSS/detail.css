@@ -1,0 +1,27 @@
+@charset "UTF-8";
+
+picture {
+	width: 500px;
+	height: 500px;
+}
+
+table {
+	width: 400px;
+	height: 180px;
+	border-collapse: collapse;
+	background: #eee;
+}
+
+tr {
+	height: 75px;
+}
+
+tr img {
+	margin: 0px 0px 0px 10px;
+}
+
+td a {
+	display: inline-block;
+	width: 190px;
+	margin: 0px 0px 0px 20px;
+}

@@ -31,7 +31,7 @@
 	<%
 		
 		Random rd = new Random();
-
+	/* MemberDTO m_info = (MemberDTO)session.getAttribute("info"); */
 	%>
 	
 	<!--     <table id="menubar">
@@ -126,7 +126,7 @@
 	<br />
 	<br />
 	<div id="extra">
-		"당신을 위한 대외활동이 준비되어 있습니다."<img src="arrow.png" id="arrow" />
+		"<%=info.getUser_nick() %>을 위한 대외활동이 준비되어 있습니다."<img src="arrow.png" id="arrow" />
 	</div>
 
 	<h3 href="#" style="color: gray">추천 공모전</h3>
@@ -302,7 +302,7 @@
 		<div class="flow">
 			<%
 				for (int i = 0; i < 10; i++) {
-				int j = (int) (Math.random() * 69);
+				int j = (int) (Math.random() * 60);
 			%>
 			<div class="item">
 				<img class="content" src="<%=l_list.get(j).getAct_poster()%>" />
@@ -375,7 +375,7 @@
 		<div class="flow">
 			<%
 				for (int i = 0; i < 10; i++) {
-				int j = (int) (Math.random() * 100) ;
+				int j = (int) (Math.random() * 99) ;
 			%>
 			<div class="item">
 				<img class="content" src="<%=i_list.get(j).getAct_poster()%>" />

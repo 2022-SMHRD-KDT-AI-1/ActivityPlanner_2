@@ -11,12 +11,12 @@ public class ActivityDAO {
 	PreparedStatement psmt = null;
 	ResultSet rs = null;
 	int cnt = 0;
-	MemberDTO dto = null;
-	
+	ActivityDTO dto = null;
+
 	public void conn() {
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
-			//Class.forName("oracle.jdbc.OracleDriver");
+			// Class.forName("oracle.jdbc.OracleDriver");
 
 			String url = "jdbc:oracle:thin:@project-db-stu.ddns.net:1524:xe";
 			String dbid = "campus_e_4_0115";
@@ -43,30 +43,31 @@ public class ActivityDAO {
 		}
 	}
 
-	public ArrayList<ActivityDTO> search(String key){
+	public ArrayList<ActivityDTO> search(String key) {
 		ArrayList<ActivityDTO> list = null;
 		try {
-			
+
 		} catch (Exception e) {
 			e.printStackTrace();
-		}finally {
+		} finally {
 			close();
-		}return list;
+		}
+		return list;
 	}
 
-	public ArrayList<ActivityDTO> showList(String type){
+	public ArrayList<ActivityDTO> showList(String type) {
 		ArrayList<ActivityDTO> list = new ArrayList<ActivityDTO>();
 		try {
 			conn();
-			
+
 			String sql = "select * from tbl_acting where act_type = ?";
-			
+
 			psmt = conn.prepareStatement(sql);
 			psmt.setString(1, type);
-			
+
 			rs = psmt.executeQuery();
-			
-			while(rs.next()) {
+
+			while (rs.next()) {
 				int num = rs.getInt("act_seq");
 				String name = rs.getString("act_name");
 				String poster = rs.getString("act_poster");
@@ -78,8 +79,7 @@ public class ActivityDAO {
 //				BoardDTO dto = new BoardDTO(num, title, writer, fileName, content, b_date);
 				ActivityDTO dto = new ActivityDTO(num, name, poster);
 				list.add(dto);
-				
-				
+
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -87,7 +87,42 @@ public class ActivityDAO {
 			close();
 		}
 		return list;
-		
+
 	}
-	
+
+	public ActivityDTO showDetail(int seq) {
+		try {
+			conn();
+
+			String sql = "select * from tbl_acting where act_seq=?";
+
+			psmt = conn.prepareStatement(sql);
+			psmt.setInt(1, seq);
+
+			rs = psmt.executeQuery();
+
+			while (rs.next()) {
+				int act_seq = rs.getInt("act_seq");
+				String act_name = rs.getString("act_name");
+				String act_type = rs.getString("act_type");
+				String act_sdate = rs.getString("act_sdate");
+				String act_edate = rs.getString("act_edate");
+				String act_intro = rs.getString("act_intro");
+				String act_benefits = rs.getString("act_benefits");
+				String act_center = rs.getString("act_center");
+				String act_money = rs.getString("act_money");
+				String act_category = rs.getString("act_category");
+				String act_homepage = rs.getString("act_homepage");
+				String act_poster = rs.getString("act_poster");
+
+				dto = new ActivityDTO(act_seq, act_type, act_name, act_sdate, act_edate, act_intro, act_benefits,
+						act_center, act_money, act_category, act_homepage, act_poster);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+		return dto;
+	}
 }
