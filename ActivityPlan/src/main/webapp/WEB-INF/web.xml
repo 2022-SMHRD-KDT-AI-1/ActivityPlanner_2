@@ -63,6 +63,12 @@
   	<description></description>
   	<servlet-class>Controller.SaveService</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>LogoutService</servlet-name>
+  	<display-name>LogoutService</display-name>
+  	<description></description>
+  	<servlet-class>Controller.LogoutService</servlet-class>
+  </servlet>
   <servlet-mapping>
   	<servlet-name>JoinService</servlet-name>
   	<url-pattern>/JoinService</url-pattern>
@@ -102,5 +108,9 @@
   <servlet-mapping>
   	<servlet-name>SaveService</servlet-name>
   	<url-pattern>/SaveService</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>LogoutService</servlet-name>
+  	<url-pattern>/LogoutService</url-pattern>
   </servlet-mapping>
 </web-app>

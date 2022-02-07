@@ -46,7 +46,15 @@ public class ActivityDAO {
 	public ArrayList<ActivityDTO> search(String key) {
 		ArrayList<ActivityDTO> list = null;
 		try {
-
+			
+			conn();
+			
+			String sql="select * from tbl_Acting where act_name like in ('%?%')";
+			
+			psmt=conn.prepareStatement(sql);
+			
+			
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {

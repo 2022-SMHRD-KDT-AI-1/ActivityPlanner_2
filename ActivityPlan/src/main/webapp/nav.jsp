@@ -128,7 +128,7 @@ if(info!=null){
         <td>
         <%if(info != null){ %>
           <div class="logout" name="logout">
-          	<a href="logoutService" style=" text-decoration-line: none; color:gray">로그아웃</a> / <a href="myPage.jsp" text-decoration-line: none; color:gray">내정보</a></div>
+          	<a href="LogoutService" style=" text-decoration-line: none; color:gray">로그아웃</a> / <a href="myPage.jsp" text-decoration-line: none; color:gray">내정보</a></div>
           <%}else{ %>
           	<div class="login2" name="login2">
           		<a href="login.jsp" style=" text-decoration-line: none; color:gray">로그인</a>
