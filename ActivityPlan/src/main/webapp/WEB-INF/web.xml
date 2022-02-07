@@ -69,6 +69,18 @@
   	<description></description>
   	<servlet-class>Controller.LogoutService</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>DeleteService</servlet-name>
+  	<display-name>DeleteService</display-name>
+  	<description></description>
+  	<servlet-class>Controller.DeleteService</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>DeleteBService</servlet-name>
+  	<display-name>DeleteBService</display-name>
+  	<description></description>
+  	<servlet-class>Controller.DeleteBService</servlet-class>
+  </servlet>
   <servlet-mapping>
   	<servlet-name>JoinService</servlet-name>
   	<url-pattern>/JoinService</url-pattern>
@@ -112,5 +124,13 @@
   <servlet-mapping>
   	<servlet-name>LogoutService</servlet-name>
   	<url-pattern>/LogoutService</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>DeleteService</servlet-name>
+  	<url-pattern>/DeleteService</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>DeleteBService</servlet-name>
+  	<url-pattern>/DeleteBService</url-pattern>
   </servlet-mapping>
 </web-app>

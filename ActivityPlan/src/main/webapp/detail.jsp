@@ -144,7 +144,7 @@
 										<button class="btn_orange homepage">
 											<i class="fa fa-home"></i> <span>저장하기+</span>
 										</button>
-								</a> <a href="https://www.dggoods.co.kr/" target="_blank"
+								</a> <a href="<%=dto.getAct_homepage()%>" target="_blank"
 									title="접수처로 이동"><button class="btn_orange homepage">
 											<i class="fa fa-home"></i> <span>접수처</span>
 										</button></a> <a href="" target="_blank" title="찜 추가">
@@ -180,7 +180,7 @@
 								<%
 									} else {
 									for (int i = 0; i < arrayDetail.length; i++) {
-										if (arrayDetail[i].equals("■") || arrayDetail[i].equals("□") ) {
+										if (arrayDetail[i].equals("■") || arrayDetail[i].equals("□")) {
 									out.print("<br>");
 								%>
 								<%=arrayDetail[i]%>
@@ -676,7 +676,7 @@
 					</div>
 					<div class="write_div">
 						<a
-							href="/list/contest/1/1?sortname=cl_order&amp;sortorder=asc&amp;stx="><button
+							href="list.jsp?type=<%=dto.getAct_type() %>"><button
 								type="button" class="btn_submit btn">목록으로</button></a>
 					</div>
 				</div>

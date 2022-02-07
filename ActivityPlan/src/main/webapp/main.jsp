@@ -101,7 +101,7 @@
 
    <!-- ----봉사활동===== -->
    <h3 href="#" style="color: gray">추천 봉사활동</h3>
-   <div id="contentFlow" class="ContentFlow">
+   <div id="contentFlow2" class="ContentFlow">
       <!-- should be place before flow so that contained images will be loaded first -->
 
       <div class="flow">
@@ -130,7 +130,7 @@
 
    <!-- 강연 -->
    <h3 href="#" style="color: gray">추천 강연</h3>
-   <div id="contentFlow" class="ContentFlow">
+   <div id="contentFlow3" class="ContentFlow">
       <!-- should be place before flow so that contained images will be loaded first -->
 
       <div class="flow">
@@ -160,7 +160,7 @@
    <br />
    <!-- 인턴 -->
    <h3 href="#" style="color: gray">추천 인턴활동</h3>
-   <div id="contentFlow" class="ContentFlow">
+   <div id="contentFlow4" class="ContentFlow">
       <!-- should be place before flow so that contained images will be loaded first -->
 
       <div class="flow">
@@ -188,52 +188,95 @@
   src="https://code.jquery.com/jquery-3.6.0.js"
   integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
   crossorigin="anonymous"></script>
+        <%
+        if(info!=null){
+        %>
       <script>
-      
-      //console.log("test");
-      //console.log($("#ci5").attr("src"));
-       
-      $.ajax({
-          url:'http://127.0.0.1:5000/ActivityPlan/main.jsp', 
-          type:'get', 
-          data:{'id':'admin'},
-          dataType:'json',
-          success: function(data) {
-              //서버로부터 정상적으로 응답이 왔을 때 실행
-              //alert("통신데이터 값 : " +data);
-              //alert("내가 보낸 값 : "+data['result']+"  "+data['v_result']+"  "+data['i_result']+"  "+data['l_result'])
-              //alert("값이 가긴할까 : "+data['result'][2*3+1]+"  "+data['result'][2*3+2]+"  "+"ci"+String(2))
-              //alert("공모전 길이 :"+data['result'].length+" / 강연 길이 : "+data['l_result'].length)
-              for(var i=0; i<10; i++){
-                 //console.log("!"+document.getElementById("ct"+String(i)))
-                 //console.log("!"+document.getElementById("ci"+String(i)).src)
-                 $("#ci"+i).attr("src",data['result'][i*3+2]);
-                 $("#ct"+i).text(data['result'][i*3+1]);
-              }
-              
-              for(var i=0; i<10; i++){
-                 $("#vi"+i).attr("src",data['v_result'][i*3+2]);
-                 $("#vt"+i).text(data['v_result'][i*3+1]);
-              }
-              
-              for(var i=0; i<10; i++){
-                 $("#ii"+i).attr("src",data['i_result'][i*3+2]);
-                 $("#it"+i).text(data['i_result'][i*3+1]);
-              }
-              
-              for(var i=0; i<10; i++){
-                 $("#li"+i).attr("src",data['l_result'][i*3+2]);
-                 $("#lt"+i).text(data['l_result'][i*3+1]);
-              }
-          },
-          error: function(err) {
-              //서버로부터 응답이 정상적으로 처리되지 못햇을 때 실행
-              alert("통신실패! : " +err);
-              console.log(err);
-          }
-      });
-
+      //alert("로그인 되었지비")
+         $.ajax({
+             url:'http://127.0.0.1:5000/ActivityPlan/main.jsp', 
+             type:'get', 
+             data:{'id': "<%=info.getUser_id()%>"},
+             dataType:'json',
+             success: function(data) {
+                console.log(data);
+                 //서버로부터 정상적으로 응답이 왔을 때 실행
+                 //alert("현재아이디 : "+"<%=info.getUser_id()%>")
+                 var el = document.querySelector('#contentFlow>.flow');
+                 var innerht =""; 
+                 for(var i=0; i<10; i++){
+                    innerht += `<div class="item">
+                         <img class="content" src="${data['result'][i*3+2]}" /> <a
+                            class="caption" href="detail.jsp?act_seq=${data['result'][i*3]}"><div
+                            >${data['result'][i*3+1]}</div></a>
+                   </div>`
+                 }
+                 el.innerHTML = innerht;
+                 var cf = new ContentFlow("contentFlow", {
+                     reflectionColor : "#000000"
+                 });
+                 cf.init();
+                 
+                 el = document.querySelector('#contentFlow2>.flow');
+                 innerht =""; 
+                 for(var i=0; i<10; i++){
+                    innerht += `<div class="item">
+                         <img class="content" src="${data['v_result'][i*3+2]}" /> <a
+                            class="caption" href="detail.jsp?act_seq=${data['v_result'][i*3]}"><div
+                            >${data['v_result'][i*3+1]}</div></a>
+                   </div>`;
+                 }
+                 el.innerHTML = innerht;
+                 cf = new ContentFlow("contentFlow2", {
+                     reflectionColor : "#000000"
+                 });
+                 cf.init();
+                 
+                 el = document.querySelector('#contentFlow3>.flow');
+                 innerht =""; 
+                 for(var i=0; i<10; i++){
+                    innerht += `<div class="item">
+                         <img class="content" src="${data['l_result'][i*3+2]}" /> <a
+                            class="caption" href="detail.jsp?act_seq=${data['l_result'][i*3]}"><div
+                            >${data['l_result'][i*3+1]}</div></a>
+                   </div>`;
+                 }
+                 el.innerHTML = innerht;
+                 cf = new ContentFlow("contentFlow3", {
+                     reflectionColor : "#000000"
+                 });
+                 cf.init();
+                 
+                 el = document.querySelector('#contentFlow4>.flow');
+                 innerht =""; 
+                 for(var i=0; i<10; i++){
+                    innerht += `<div class="item">
+                         <img class="content" src="${data['i_result'][i*3+2]}" /> <a
+                            class="caption" href="detail.jsp?act_seq=${data['i_result'][i*3]}"><div
+                            >${data['i_result'][i*3+1]}</div></a>
+                   </div>`;
+                 }
+                 el.innerHTML = innerht;
+                 cf = new ContentFlow("contentFlow4", {
+                     reflectionColor : "#000000"
+                 });
+                 cf.init();
+             },
+             error: function(err) {
+                 //서버로부터 응답이 정상적으로 처리되지 못햇을 때 실행
+                 alert("통신실패! : " +err);
+                 console.log(err);
+             }
+         });
       </script>
+      <%
+      }else{
+      %>
+         <script>
+            //alert("로그인 안되었지비")
+         </script>
+      <%} %>
+      }
       </div>
 </body>
 </html>

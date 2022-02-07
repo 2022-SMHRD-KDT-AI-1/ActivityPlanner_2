@@ -23,16 +23,14 @@ public class ActivityDTO {
 		this.act_poster = act_poster;
 	}
 	
-	public ActivityDTO(int act_seq, String act_type, String act_name, String act_edate, String act_center,
-			String act_category) {
-		super();
-		this.act_seq = act_seq;
-		this.act_type = act_type;
-		this.act_name = act_name;
-		this.act_edate = act_edate;
-		this.act_center = act_center;
-		this.act_category = act_category;
-	}
+	/*
+	 * public ActivityDTO(int act_seq, String act_type, String act_name, String
+	 * act_edate, String act_center, String act_category,) { super(); this.act_seq =
+	 * act_seq; this.act_type = act_type; this.act_name = act_name; this.act_edate =
+	 * act_edate; this.act_center = act_center; this.act_category = act_category; }
+	 */
+	
+	
 
 	public ActivityDTO(int act_seq, String act_type, String act_name, String act_sdate, String act_edate,
 			String act_intro, String act_benefits, String act_center, String act_money, String act_category,
@@ -51,6 +49,27 @@ public class ActivityDTO {
 		this.act_homepage = act_homepage;
 		this.act_poster = act_poster;
 	}
+	public ActivityDTO(int act_seq, String act_type, String act_name, String act_edate, String act_category) {
+		super();
+		this.act_seq = act_seq;
+		this.act_type = act_type;
+		this.act_name = act_name;
+		this.act_edate = act_edate;
+		this.act_category = act_category;
+	}
+
+	public ActivityDTO(int act_seq, String act_type, String act_name, String act_sdate, String act_edate,
+			String act_category, String act_poster) {
+		super();
+		this.act_seq = act_seq;
+		this.act_type = act_type;
+		this.act_name = act_name;
+		this.act_sdate = act_sdate;
+		this.act_edate = act_edate;
+		this.act_category = act_category;
+		this.act_poster = act_poster;
+	}
+
 	public int getAct_seq() {
 		return act_seq;
 	}

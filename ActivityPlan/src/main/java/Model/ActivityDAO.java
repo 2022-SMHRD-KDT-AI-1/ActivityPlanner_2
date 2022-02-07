@@ -49,7 +49,7 @@ public class ActivityDAO {
 			
 			conn();
 			
-			String sql="select * from tbl_Acting where act_name like in ('%?%')";
+			String sql="select * from tbl_acting where act_name like '%?%'";
 			
 			psmt=conn.prepareStatement(sql);
 			

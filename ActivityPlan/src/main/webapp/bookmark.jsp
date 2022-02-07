@@ -15,88 +15,157 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Document</title>
 </head>
-<link rel="stylesheet" href="./CSS/bookmark.css" />
+<link rel="stylesheet" href="CSS/bookmark.css" />
 <script src="https://kit.fontawesome.com/246a4fba0b.js"
 	crossorigin="anonymous"></script>
 <body>
 	<%@include file="nav.jsp"%>
 	<%
-	String id = request.getParameter("user_id");
+		String id = request.getParameter("user_id");
 	MyActingDAO dao = new MyActingDAO();
 	ArrayList<ActivityDTO> list = dao.showBookmark(id);
-	/* SimpleDateFormat tf = new SimpleDateFormat("yyyy-MM-dd");
-	String from = null; */
+	
+	System.out.println(list.size());
 	%>
+	<br />
+	<br />
+	<br />
+	<br />
+	<br />
+	<br />
+	<br />
+	<br />
+	<br />
+	<form>
 
-	<br />
-	<br />
-	<br />
-	<br />
-	<br />
-	<table class="bookmark" align="center">
-		<tr>
-			<td id="mark">
-				<h2 style="color: gray">즐겨찾기</h2>
-			</td>
-		</tr>
-	</table>
-	<br />
-	<br />
-	<button id="alldelete" align="right">모두삭제</button>
-	<div class="adv">공고</div>
-	<table class="box" border="1px" align="center">
-		<div class="p-list" align="center">
+		<table class="bookmark" align="center">
 			<tr>
-				<th>번호</th>
-				<th><a class="type">타입</a></th>
-				<th><a class="tit">대외활동명</a></th>
-				<th><a class="organ">주최/주관</a></th>
-				<th><a class="day">마감날짜</a></th>
-				<th><a class="category">분야</a></th>
-				<th><a class="delete">삭제</a></th>
+				<td id="mark">
+					<h2 style="color: gray;">찜 목록</h2>
+				</td>
 			</tr>
-			<%
-				if (list != null) {
-				for (int i = 0; i < list.size(); i++) {
-			%>
-		
-		<tr>
-			<td><%=i + 1%></td>
-			<td><%=list.get(i).getAct_type()%></td>
-			<td><%=list.get(i).getAct_name()%></td>
-			<td><%=list.get(i).getAct_center()%></td>
-			<td><%=list.get(i).getAct_edate()%></td>
-			<td><%=list.get(i).getAct_category()%></td>
-			<td><button type="button" id="delete">
-					<img src="./pics/delete.png">
-				</button></td>
-		</tr>
-		<%
-			}
-		} else {
-		%>
-		<tr>
-			<td colspan="6">즐겨찾기한 대외활동이 없습니다.</td>
-		</tr>
-		<%
-			}
-		%>
+		</table>
+		<br /> <br />
+
+
+		<table class="box" border="1" align="center">
+			<div class="p-list" align="center">
+				<%
+					if (list.size() <= 0) {
+				%>
+
+				<tr style="width: auto;">
+					<th style="border-inline-color: white;"><div id="contest_wrap">
+
+							<div id="contest_info">
+								<div class="info_list clearfix">
+									<div class="contest_poster">
+										<div style="width: 300px; height: 200px"></div>
+									</div></th>
+					<th><a class="organ">
+							<div
+								style="width: 500px; border-inline-color: white; font-weight: bolder;">즐겨찾기한
+								대외활동이 없습니다.</div>
+					</a></th>
+
+
+					<th style="border-inline-color: white;"><a class="sDate"><div
+								style="font-size: 17px; width: 200px; text-align: right; color: gray;"
+								class="bmark"></a></th>
+					<th><a ID="eDate"><div
+								style="width: 200px; text-align: left; color: gray; font-size: 17px;"
+								class="bmark"></a></th>
+					<th><a class="day">
+							<div style="width: 100px; font-size: 20px; margin: 10px;"
+								class="dday"></div>
+					</a></th>
+					<th><a title="삭제하기"><button class="deleteButton">
+								<i></i>
+								<!-- <span>삭제</span> -->
+							</button></a></th>
+				</tr>
+				<%
+					} else {
+					for (int i = 0; i < list.size(); i++) {
+				%>
+				<tr style="width: auto;">
+					<th style="border-inline-color: white;"><div id="contest_wrap">
+							<div id="contest_info">
+								<div class="info_list clearfix">
+									<div class="contest_poster">
+										<div style="width: 300px; height: 200px">
+											<img src="<%=list.get(i).getAct_poster() %>" width="150px" />
+										</div>
+									</div></th>
+					<th><a class="organ">
+							<div
+								style="width: 500px; border-inline-color: white; font-weight: bolder;"><%=list.get(i).getAct_name() %></div>
+					</a></th>
+
+
+					<th style="border-inline-color: white;"><a class="sDate"><div
+								style="font-size: 17px; width: 200px; text-align: right; color: gray;"
+								class="bmark"><%=list.get(i).getAct_sdate() %> ~</a></th>
+					<th><a ID="eDate"><div
+								style="width: 200px; text-align: left; color: gray; font-size: 17px;"
+								class="bmark"><%=list.get(i).getAct_edate() %></a></th>
+					<th><a class="day">
+							<div style="width: 100px; font-size: 20px; margin: 10px;"
+								class="dday">진행중</div>
+					</a></th>
+					<th><form action="DeleteService"><button name="act_seq" type="submit" class="deleteButton" value="<%=list.get(i).getAct_seq() %>">
+								<i></i> <span>삭제</span>
+							</button></form></th>
+				</tr>
+				<%
+					}
+				}
+				%>
+			</div>
+
+			</div>
+		</table>
+		<!--       <table class="box" border="1"  align="center" >
+        <div class="p-list" align="center">
+          <tr style="width: auto;">
+            <th style="border-inline-color : white;"><div id="contest_wrap" >
+              
+              <div id="contest_info">
+                <div class="info_list clearfix">
+                  <div class="contest_poster">
+                    <div style="width: 300px; height:200px">
+                      <a
+                        href="/data/poster/2201/475012.jpg?v=1643969171"
+                        data-lightbox="poster"
+                        ><img src="475012.jpg" width="150px"
+                      /></a>
+                    </div>
+                  </div></th>
+            <th ><a class="organ"> <div style="width: 500px; border-inline-color: white; font-weight: bolder; ">2022 대구 라이프스타일 굿즈 공모전</div></a></th>
+            
+            
+            <th style= "border-inline-color : white;"><a class="sDate"><div style=" font-size: 17px; width: 200px; text-align: right ;  color: gray;"  class="bmark">
+            2021. 01. 19 ~</a></th>
+            <th><a ID="eDate"><div style="width: 200px; text-align: left ; color: gray; font-size: 17px;"  class="bmark" >
+           2021. 02. 23</a></th>
+            <th><a id="day"> <div style="width: 100px; font-size: 20px; margin: 10px;"  class="eday" > 마감</div></a></th>
+            <th> <a  title="삭제하기"
+              ><button class="deleteButton">
+                <i ></i> <span>삭제</span>
+              </button></a
+            ></th>
+          </tr>
+        </div>
+         
+        </div>
+      <br><br>
+    </table> -->
+		<br> <br>
+		<div id="btn_submit " ; align=center;>
+			<a
+				href="main.jsp"><button
+					type="button" class="btn_submit btn">홈으로 돌아가기</button></a>
 		</div>
-		<!--   <tr>
-          <td>2022 대구 라이프스타일 굿즈 공모전</td>
-          <td>대구관광재단</td>
-          <td>D-10 접수중</td>
-          <td>202</td>
-          <td>
-          <button type="button" id="delete" >
-            <img src="./pics/delete.png">
-          </button></td>
-        </tr>
-      </div>
-      <br><br> -->
-	</table>
-	<br>
-	<br>
-	<div type="submit" name="home" value="홈으로돌아가기" text align="center">홈으로돌아가기</div>
+		</div>
 </body>
 </html>
