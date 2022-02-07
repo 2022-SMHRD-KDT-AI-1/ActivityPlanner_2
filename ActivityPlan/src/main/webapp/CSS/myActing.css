@@ -1,0 +1,47 @@
+@charset "UTF-8";
+
+
+.mark {
+  width: 20px;
+  height: 10px;
+}
+.adv {
+  padding: 0;
+  position: relative;
+  margin-left: 700px;
+  float: left;
+  background-color: white;
+  display: flex;
+  overflow: hidden;
+  box-sizing: inherit;
+  text-transform: uppercase;
+}
+.p-list {
+  display: -webkit-box;
+  overflow: hidden;
+  font-size: 16px;
+  text-align: center;
+  line-height: 1.2em;
+  white-space: pre-wrap;
+  text-overflow: ellipsis;
+}
+.box {
+  border: 1px solid;
+  border-color: gray;
+  border-collapse: collapse;
+  border-style: 1px;
+  width: 800px;
+}
+#alldelete {
+  margin-right: 700px;
+  float: right;
+}
+
+#delete {
+  background-color: transparent;
+  box-sizing: border-box;
+}
+home {
+  margin-right: 700px;
+  float: right;
+}

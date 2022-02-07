@@ -1,134 +1,203 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html lang="ko">
 
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-<html>
 <head>
-<title>달력</title>
-<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
-<meta http-equiv="Content-Language" content="ko">
-<meta http-equiv="Content-Type" content="text/html; charset=ks_c_5601-1987">
-<script src="https://use.fontawesome.com/releases/v5.2.0/js/all.js"></script>
-<script src="./cal.js"></script>
-<link rel="stylesheet" type="text/css" href="./CSS/cal.css">
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>캘린더</title>
+<link rel=" shortcut icon" href="image/favicon.ico">
+
+<link rel="stylesheet" href="vendor/css/fullcalendar.min.css" />
+<link rel="stylesheet" href="vendor/css/bootstrap.min.css">
+<link rel="stylesheet" href='vendor/css/select2.min.css' />
+<link rel="stylesheet"
+	href='vendor/css/bootstrap-datetimepicker.min.css' />
+
+<link rel="stylesheet"
+	href="https://fonts.googleapis.com/css?family=Open+Sans:400,500,600">
+<link rel="stylesheet"
+	href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+<link rel="stylesheet" href="CSS/main.css">
+
 </head>
 
-
-<center>
-
 <body>
-<%@ include file="nav.jsp" %>
-	<h2></h2>
-	<h2></h2>
-	<h2></h2>
-  
+	<%@include file="nav.jsp"%>
+	<br />
+	<h1></h1>
+	<br />
+	<h1></h1>
+	<br />
+	<div class="container">
 
-    <table id="cal" width=670 border=0 cellpadding=0 cellspacing=0>
-        <tr>
-        <td nowrap valign=top><!--------달력 들어갈곳----->
-            <table border=0 cellpadding=0 cellspacing=0 width=100%>
-                <tr>
-                    <td>
-                        <table border=0 cellpadding=0 cellspacing=0 width=100%>
-                            <tr>
-                                <td rowspan=2 width=1 height=10 nowrap bgcolor=ffffff></td>
-                                <td width="1%" bgcolor=#FFFFFF></td>
-                            </tr>
-                            <tr>
-                                <td height=1 bgcolor=#FFFFFF></td>
-                            </tr>
-                            <tr>
-                                <td width="97%" bgcolor=#77A6EA height=45 align=center bordercolorlight="#000000" bordercolordark="#000000"><!-----날짜 넣는 곳--->
-                                    <table border=0 cellpadding=0 cellspacing=0>
-                                        <tr>
-                                            <td nowrap>&nbsp;&nbsp;
-                                                <input class="fas fa-chevron-right fa-rotate-180" TYPE="button" VALUE="&#xf043;" onClick="javascript:prevMonth();" class="10"> <!--------년도----------> 
-                                                <select id=yearSelect onChange='setCalendar()'>
-                                                <script type=text/javascript>
-                                                     for (var i = 1800, selectStr = ""; i <= 2101; i++)
-                                                        selectStr += "<option value='" + i + "'>" + i + " 년</option>";
-                                                    selectStr += "</select>";
-                                                    document.write(selectStr);
-                                                </script>
-         <!--------년도---------->
-         <!--------월---------->
-                                                </select>
-                                                <select id=monthSelect  id=monthSelect onChange='setCalendar()'>
-                                                <script type=text/javascript>
-                                                    for (var i = 1, selectStr = ""; i <= 12; i++)
-                                                    selectStr += "<option value='" + i + "'>" + i + " 월</option>";
-                                                selectStr += "</select>";
-                                                document.write(selectStr);
-                                                </script>
-         <!--------월---------->
-                                                <input class="fa fa-chevron-right" TYPE="button" VALUE="&#xf043;" onClick="javascript:nextMonth();" class="10" >
-                                                </select>
-                                            </td>
-                                            <td ailgn=right>
-                                                <p align="center">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                                    <b><input class="today" TYPE="button" VALUE="오늘 날짜 보기" onClick="javascript:currentMonth();" class="10">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                                        <font color=#fff><span style="font-size:20px;" id=curenMonth></span></font></b>
-                                            </td>
-                                        </tr>
-                                    </table>
-      <!-----날짜 넣는 곳---></td>
-                            </tr>
-                            <tr>
-                                <td width="97%" height=1 border=0 bgcolor="#000000" bordercolorlight="#000000" bordercolordark="#000000"></td>
-                            </tr>
-                            <tr>
-                                <td width="97%" bgcolor=ffffff align=center bordercolorlight="#000000" bordercolordark="#000000"><!----달력 넣는곳------>
-                                    <table border=1 cellpadding=0 cellspacing=0 width=1000px bordercolor="#ECEEF2">
-                                        <tr>
-                                            <td colspan=7 height=7 nowrap></td>
-                                        </tr>
-                                        <tr>
-                                            <td width=15% align=center><font id=ln6 color=red>일·SUN</font></td>
-                                            <td width=14% align=center><font id=ln6>월·MON</font></td>
-                                            <td width=14% align=center>화·TUE</td>
-                                            <td width=14% align=center><font id=ln6>수·WED</font></td>
-                                            <td width=14% align=center><font id=ln6>목·THU</font></td>
-                                            <td width=14% align=center><font id=ln6>금·FRI</font></td>
-                                            <td width=15% align=center><font id=ln6 color=#0099FF>토·SAT</font></td>
-                                        </tr>
-                                        <tr>
-                                            <td colspan=7 height=7 nowrap></td>
-                                        </tr>
-                                            <script type=text/javascript>
-                                                for (i = 0; i < 6; i++)
-                                                {
-                                                document.write("<tr height='65'>");
+		<!-- 일자 클릭시 메뉴오픈 -->
+		<div id="contextMenu" class="dropdown clearfix">
+			<ul class="dropdown-menu dropNewEvent" role="menu"
+				aria-labelledby="dropdownMenu"
+				style="display: block; position: static; margin-bottom: 5px;">
+				<li><a tabindex="-1" href="#">공모전</a></li>
+				<li><a tabindex="-1" href="#">봉사활동</a></li>
+				<li><a tabindex="-1" href="#">강연</a></li>
+				<li><a tabindex="-1" href="#">인턴</a></li>
+				<li class="divider"></li>
+				<li><a tabindex="-1" href="#" data-role="close">Close</a></li>
+			</ul>
+		</div>
+
+		<div id="wrapper">
+			<div id="loading"></div>
+			<div id="calendar"></div>
+		</div>
 
 
-                                                for (j = 0; j < 7; j++)
-                                                document.write("<td class='tb' cellSpacing='1' id='dayCell" + ( i * 7 + j )+"'></td>");
-                                                document.write("</tr>");
-                                                }
+		<!-- 일정 추가 MODAL -->
+		<div class="modal fade" tabindex="-1" role="dialog" id="eventModal">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal"
+							aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+						<h4 class="modal-title"></h4>
+					</div>
+					<div class="modal-body">
 
+						<div class="row">
+							<div class="col-xs-12">
+								<label class="col-xs-4" for="edit-allDay">하루종일</label> <input
+									class='allDayNewEvent' id="edit-allDay" type="checkbox"></label>
+							</div>
+						</div>
 
+						<div class="row">
+							<div class="col-xs-12">
+								<label class="col-xs-4" for="edit-title">일정명</label> <input
+									class="inputModal" type="text" name="edit-title"
+									id="edit-title" required="required" />
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-xs-12">
+								<label class="col-xs-4" for="edit-start">시작</label> <input
+									class="inputModal" type="text" name="edit-start"
+									id="edit-start" />
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-xs-12">
+								<label class="col-xs-4" for="edit-end">끝</label> <input
+									class="inputModal" type="text" name="edit-end" id="edit-end" />
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-xs-12">
+								<label class="col-xs-4" for="edit-type">구분</label> <select
+									class="inputModal" type="text" name="edit-type" id="edit-type">
+									<option value="카테고리1">공모전</option>
+									<option value="카테고리2">봉사활동</option>
+									<option value="카테고리3">강연</option>
+									<option value="카테고리4">인턴</option>
+								</select>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-xs-12">
+								<label class="col-xs-4" for="edit-color">색상</label> <select
+									class="inputModal" name="color" id="edit-color">
+									<option value="#D25565" style="color: #D25565;">빨간색</option>
+									<option value="#9775fa" style="color: #9775fa;">보라색</option>
+									<option value="#ffa94d" style="color: #ffa94d;">주황색</option>
+									<option value="#74c0fc" style="color: #74c0fc;">파란색</option>
+									<option value="#f06595" style="color: #f06595;">핑크색</option>
+									<option value="#63e6be" style="color: #63e6be;">연두색</option>
+									<option value="#a9e34b" style="color: #a9e34b;">초록색</option>
+									<option value="#4d638c" style="color: #4d638c;">남색</option>
+									<option value="#495057" style="color: #495057;">검정색</option>
+								</select>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-xs-12">
+								<label class="col-xs-4" for="edit-desc">설명</label>
+								<textarea rows="4" cols="50" class="inputModal" name="edit-desc"
+									id="edit-desc"></textarea>
+							</div>
+						</div>
+					</div>
+					<div class="modal-footer modalBtnContainer-addEvent">
+						<button type="button" class="btn btn-default" data-dismiss="modal">취소</button>
+						<button type="button" class="btn btn-primary" id="save-event">저장</button>
+					</div>
+					<div class="modal-footer modalBtnContainer-modifyEvent">
+						<button type="button" class="btn btn-default" data-dismiss="modal">닫기</button>
+						<button type="button" class="btn btn-danger" id="deleteEvent">삭제</button>
+						<button type="button" class="btn btn-primary" id="updateEvent">저장</button>
+					</div>
+				</div>
+				<!-- /.modal-content -->
+			</div>
+			<!-- /.modal-dialog -->
+		</div>
+		<!-- /.modal -->
 
-                                                if (typeof(rege_0_1) != "undefined" && 1800 <= rege_0_1 && rege_0_1 <= 2101)
-                                                {
-                                                ayear = rege_0_1;
-                                                amonth = 1;
-                                                }
+		<div class="panel panel-default">
 
+			<div class="panel-heading">
+				<h3 class="panel-title">필터</h3>
+			</div>
 
-                                                if (typeof(rege_0_2) != "undefined" && 1 <= rege_0_2 && rege_0_2 <= 12)
-                                                amonth = rege_0_2;
-                                                </script>
-                                        <tr>
-                                            <td colspan=7 height=7 nowrap></td>
-                                        </tr>
-                                    </table>
-      <!----달력 넣는곳------></td>
-                            </tr>
-                        </table>
-                    </td>
-                </tr>
-            </table>
-        </td>
-    </tr>
-</table>
+			<div class="panel-body">
+
+				<div class="col-lg-6">
+					<label for="calendar_view">구분별</label>
+					<div class="input-group">
+						<select class="filter" id="type_filter" multiple="multiple">
+							<option value="카테고리1">카테고리1</option>
+							<option value="카테고리2">카테고리2</option>
+							<option value="카테고리3">카테고리3</option>
+							<option value="카테고리4">카테고리4</option>
+						</select>
+					</div>
+				</div>
+
+				<div class="col-lg-6">
+					<label for="calendar_view">등록자별</label>
+					<div class="input-group">
+						<label class="checkbox-inline"><input class='filter'
+							type="checkbox" value="정연" checked>보람</label> <label
+							class="checkbox-inline"><input class='filter'
+							type="checkbox" value="다현" checked>시현</label> <label
+							class="checkbox-inline"><input class='filter'
+							type="checkbox" value="사나" checked>광일</label> <label
+							class="checkbox-inline"><input class='filter'
+							type="checkbox" value="나연" checked>소미</label> <label
+							class="checkbox-inline"><input class='filter'
+							type="checkbox" value="지효" checked>정환</label>
+					</div>
+				</div>
+
+			</div>
+		</div>
+		<!-- /.filter panel -->
+	</div>
+	<!-- /.container -->
+	<%@include file="myActing.jsp" %>
+
+	<script src="vendor/js/jquery.min.js"></script>
+	<script src="vendor/js/bootstrap.min.js"></script>
+	<script src="vendor/js/moment.min.js"></script>
+	<script src="vendor/js/fullcalendar.min.js"></script>
+	<script src="vendor/js/ko.js"></script>
+	<script src="vendor/js/select2.min.js"></script>
+	<script src="vendor/js/bootstrap-datetimepicker.min.js"></script>
+	<script src="js/main.js"></script>
+	<script src="js/addEvent.js"></script>
+	<script src="js/editEvent.js"></script>
+	<script src="js/etcSetting.js"></script>
 </body>
+
 </html>

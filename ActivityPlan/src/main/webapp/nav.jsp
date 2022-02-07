@@ -7,6 +7,27 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link rel="stylesheet" href="./CSS/nav.css">
+<style>
+a {
+	text-decoration-line: none;
+	color: gray;
+}
+
+a:visited {
+	text-decoration-line: none;
+	color: gray;
+}
+}
+a:hover {
+	text-decoration-line: none;
+	color: gray;
+}
+
+a:visited {
+	text-decoration-line: none;
+	color: gray;
+}
+</style>
 </head>
 <body>
 <%
@@ -107,10 +128,10 @@ if(info!=null){
         <td>
         <%if(info != null){ %>
           <div class="logout" name="logout">
-          	<a href="logoutService">로그아웃</a> / <a href="modify.jsp">내정보</a></div>
+          	<a href="logoutService" style=" text-decoration-line: none; color:gray">로그아웃</a> / <a href="myPage.jsp" text-decoration-line: none; color:gray">내정보</a></div>
           <%}else{ %>
           	<div class="login2" name="login2">
-          		<a href="login.jsp">로그인</a>
+          		<a href="login.jsp" style=" text-decoration-line: none; color:gray">로그인</a>
           	</div>
           <%} %>
         </td>

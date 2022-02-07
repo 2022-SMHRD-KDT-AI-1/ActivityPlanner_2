@@ -73,6 +73,12 @@ insert into tbl_user values('admin','123','관리자','01000000000','M','1900-01
 select * from tbl_user;
 select act_seq, act_type from tbl_acting;
 
+insert into tbl_my_acting values (
+	tbl_my_acting_SEQ.nextval,1,'admin','y'
+);
+
+select * from TBL_MY_ACTING;
+select * from TBL_ACTING;
 
 CREATE TABLE tbl_my_acting
 (
@@ -86,6 +92,7 @@ CREATE TABLE tbl_my_acting
 CREATE SEQUENCE tbl_my_acting_SEQ
 START WITH 1
 INCREMENT BY 1;
+
 
 
 insert into tbl_acting(ACT_SEQ, ACT_TYPE, ACT_NAME, ACT_INTRO, ACT_SDATE, ACT_EDATE, ACT_CENTER, ACT_BENEFITS, ACT_MONEY, ACT_CATEGORY, ACT_HOMEPAGE, ACT_POSTER) values(tbl_acting_SEQ.NEXTVAL, 0,'수협 60주년 기념 우리바다 사진 공모전','
@@ -6427,3 +6434,17 @@ insert into tbl_acting(ACT_SEQ, ACT_TYPE, ACT_NAME, ACT_INTRO, ACT_SDATE, ACT_ED
 기간 내에 디지털 금융 아카데미 강의 8개 중 4개 이상 이수할 시 문화상품권 증정!
  
 ',NULL,NULL,'전국투자자교육협의회',NULL,'비어있음','교육/강연/멘토링','https://www.df-aca.com','https://www.facebook.com/tr?id=740083976953762&ev=PageView&noscript=1');
+
+
+
+
+
+select m.act_seq, a.act_name, a.act_type, a.act_center, a.act_edate, a.act_category
+	from tbl_my_acting m, tbl_acting a, tbl_user u
+	where m.act_seq = a.act_seq
+		and m.user_id = u.user_id
+		and m.user_id = 'admin'
+		and m.act_yn = 'y'
+	order by a.act_edate;
+		
+		

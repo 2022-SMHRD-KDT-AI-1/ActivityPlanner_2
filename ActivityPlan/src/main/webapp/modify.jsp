@@ -1,9 +1,9 @@
+<%@page import="Model.MemberDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<link rel="stylesheet" href="회원가입.css" />
 <meta charset="UTF-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -16,13 +16,17 @@
 	href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" />
 </head>
 <body>
+
+<%
+	MemberDTO info = (MemberDTO)session.getAttribute("info");
+%>
 	<img src="./timeB로고.svg" id="logo" />
 	<div class="container">
 		<form action="ModifyService" method="POST" class="modifyForm">
-			<h2 style="text-align: center">회원가입</h2>
+			<h2 style="text-align: center">회원정보수정</h2>
 			<div class="textForm" div style="text-align: center">
 			<!-- 아이디 입력 -->
-				<input name="loginId" type="text" class="id" placeholder="아이디" disabled/>
+				<input name="loginId" type="text" class="id" placeholder="<%=info.getUser_id() %>" disabled/>
 			</div>
 			
 			<!-- 비밀번호 입력 -->
@@ -39,7 +43,7 @@
 			
 			<!-- 이름 입력 -->
 			<div class="textForm" div style="text-align: center">
-				<input name="name" type="text" class="name" placeholder="이름" disabled />
+				<input name="name" type="text" class="name" placeholder="<%=info.getUser_name() %>" disabled />
 			</div>
 
 			<!-- 성별 입력 -->
@@ -57,7 +61,7 @@
 			<!-- 전화번호 입력 -->
 			<div class="textForm" div style="text-align: center">
 				<input name="cellphoneNo" type="tel" class="cellphoneNo"
-					placeholder="전화번호" disabled/>
+					placeholder="<%=info.getUser_tel() %>" disabled/>
 			</div>
 			
 			<!-- 전공 -->
@@ -74,13 +78,13 @@
 			<div class="textForm">
 				<p>
 					<input id="datepicker" name = "birth" class="birth2" type="text"
-						placeholder="생년월일" disabled/>
+						placeholder="<%=info.getUser_birthdate() %>" disabled/>
 				</p>
 			</div>
 			
 			
 			<div class="button" style="text-align: center">
-				<input type="submit" class="btn" value="JOIN" />
+				<input type="submit" class="btn" value="MODIFY" />
 			</div>
 			<!--이것은 가입하겠다는 버튼-->
 		</form>
