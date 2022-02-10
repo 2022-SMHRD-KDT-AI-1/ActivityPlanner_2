@@ -25,12 +25,12 @@
 
 		</dependency>
 		
-		<!-- https://mvnrepository.com/artifact/oracle/ojdbc -->
-		<dependency>
-		    <groupId>oracle</groupId>
-		    <artifactId>ojdbc</artifactId>
-		    <version>10.2.0.3.0</version>
-		</dependency>
+	<!-- https://mvnrepository.com/artifact/com.oracle.database.jdbc/ojdbc10 -->
+	<dependency>
+	    <groupId>com.oracle.database.jdbc</groupId>
+	    <artifactId>ojdbc10</artifactId>
+	    <version>19.3.0.0</version>
+	</dependency>
 
 	</dependencies>
 	<build>
