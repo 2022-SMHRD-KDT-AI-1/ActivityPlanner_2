@@ -163,7 +163,7 @@ public class MyActingDAO {
 		try {
 			conn();
 
-			String sql = "delete from tbl_my_acting where act_seq=? and myact_yn='y'";
+			String sql = "delete from tbl_my_acting where act_seq=? and act_yn='y'";
 
 			psmt = conn.prepareStatement(sql);
 			psmt.setInt(1, act_seq);
@@ -183,7 +183,7 @@ public class MyActingDAO {
 		try {
 			conn();
 
-			String sql = "delete from tbl_my_acting where act_seq=? and myact_yn='n'";
+			String sql = "delete from tbl_my_acting where act_seq=? and act_yn='n'";
 
 			psmt = conn.prepareStatement(sql);
 			psmt.setInt(1, act_seq);

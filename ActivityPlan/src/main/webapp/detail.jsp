@@ -79,6 +79,37 @@
 
 					arrayDetail = detail.split(""); // 한글자씩 저장
 				}
+				
+				//String benefit, intro, sdate, edate, center, money, category, homepage, poster;
+				String benefit = dto.getAct_benefits();
+				String intro = dto.getAct_intro();
+				String sdate = dto.getAct_sdate();
+				String edate  = dto.getAct_edate();
+				String center = dto.getAct_center();
+				String money = dto.getAct_money();
+				String category = dto.getAct_category();
+				
+				if(benefit == null){
+					benefit = "없음";
+				}
+				if(intro == null){
+					intro = "없음";
+				}
+				if(sdate == null){
+					sdate = "없음";
+				}
+				if(edate == null){
+					edate = "없음";
+				}
+				if(center == null){
+					center="없음";
+				}
+				if(money == null){
+					money = "없음";
+				}
+				if(category == null){
+					category = "없음";
+				}
 				%>
 				<br /> <br /> <br /> <br /> <br /> <br />
 
@@ -103,28 +134,28 @@
 										<tr></tr>
 										<tr>
 											<th>주최/주관</th>
-											<td><%=dto.getAct_center()%></td>
+											<td><%=center%></td>
 										</tr>
 
 										<tr>
 											<th>시작날짜</th>
-											<td><%=dto.getAct_sdate()%></td>
+											<td><%=sdate%></td>
 										</tr>
 										<tr>
 											<th>마감날짜</th>
-											<td><%=dto.getAct_edate()%></td>
+											<td><%=edate%></td>
 										</tr>
 										<tr>
 											<th>카테고리</th>
-											<td><%=dto.getAct_category()%></td>
+											<td><%=category%></td>
 										</tr>
 										<tr>
 											<th>혜택</th>
-											<td><%=dto.getAct_benefits()%></td>
+											<td><%=benefit%></td>
 										</tr>
 										<tr>
 											<th>상금</th>
-											<td><%=dto.getAct_money()%></td>
+											<td><%=money%></td>
 										</tr>
 									</tbody>
 								</table>

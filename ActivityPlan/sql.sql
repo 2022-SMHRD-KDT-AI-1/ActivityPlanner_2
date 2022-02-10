@@ -6451,3 +6451,6 @@ select m.act_seq, a.act_name, a.act_type, a.act_center, a.act_edate, a.act_categ
 select * from tbl_acting where act_name like '%바다%';
 
 select m.act_seq, a.act_name, a.act_type, a.act_edate, a.act_category, a.act_poster,a.act_sdate, m.act_yn from tbl_my_acting m, tbl_acting a, tbl_user u where m.act_seq = a.act_seq and m.user_id = u.user_id and m.user_id = 'admin' and m.act_yn = 'n';
+
+select * from TBL_ACTING where act_seq=174;
+select * from tbl_my_acting where user_id='dlfdltka123';

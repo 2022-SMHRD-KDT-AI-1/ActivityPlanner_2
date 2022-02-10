@@ -39,7 +39,7 @@
 		<table class="bookmark" align="center">
 			<tr>
 				<td id="mark">
-					<h2 style="color: gray;">찜 목록</h2>
+					<h2 style="color: gray;">저장한 나의 활동  목록</h2>
 				</td>
 			</tr>
 		</table>

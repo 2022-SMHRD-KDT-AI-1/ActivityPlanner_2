@@ -178,6 +178,7 @@
          <%
             }
          %>
+         </div>
          <div class="globalCaption"></div>
          <div class="scrollbar">
             <div class="slider">
@@ -206,8 +207,8 @@
                  var innerht =""; 
                  for(var i=0; i<10; i++){
                     innerht += `<div class="item">
-                         <img class="content" src="${data['result'][i*3+2]}" /> <a
-                            class="caption" href="detail.jsp?act_seq=${data['result'][i*3]}"><div
+                         <img class="content" src="${data['result'][i*3+2]}" /> 
+                         <a class="caption" href="detail.jsp?act_seq=${data['result'][i*3]}"><div
                             >${data['result'][i*3+1]}</div></a>
                    </div>`
                  }
