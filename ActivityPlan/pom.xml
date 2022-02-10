@@ -24,6 +24,13 @@
 
 
 		</dependency>
+		
+		<!-- https://mvnrepository.com/artifact/oracle/ojdbc -->
+		<dependency>
+		    <groupId>oracle</groupId>
+		    <artifactId>ojdbc</artifactId>
+		    <version>10.2.0.3.0</version>
+		</dependency>
 
 	</dependencies>
 	<build>
