@@ -21,10 +21,13 @@
 			<groupId>org.apache.tomcat</groupId>
 			<artifactId>tomcat-servlet-api</artifactId>
 			<version>8.5.38</version>
-
-
 		</dependency>
 
+		<dependency>
+			<groupId>com.oracle.database.jdbc</groupId>
+			<artifactId>ojdbc10</artifactId>
+			<version>19.13.0.0.1</version>
+		</dependency>
 	</dependencies>
 	<build>
 		<finalName>ActivityPlan</finalName>
