@@ -24,12 +24,6 @@
 
 
 		</dependency>
-		
-		<dependency>
-			<groupId>com.oracle.database.jdbc</groupId>
-			<artifactId>ojdbc10</artifactId>
-			<version>19.13.0.0.1</version>
-		</dependency>
 
 	</dependencies>
 	<build>
