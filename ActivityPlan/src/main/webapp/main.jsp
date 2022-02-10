@@ -88,7 +88,7 @@
 
       <!-- 공모전 -->
       <div class="flow">
-       <h3><%= c_list.size() %></h3>
+       <h3><%= c_list.size()%></h3>
          <%
             for (int i = 0; i < 10; i++) {
             int j = (int) (Math.random() * 100);
