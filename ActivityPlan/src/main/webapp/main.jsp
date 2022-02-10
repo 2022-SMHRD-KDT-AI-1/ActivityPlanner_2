@@ -26,6 +26,17 @@
          reflectionColor : "#000000"
       });
    </script>
+   <style>
+         a.caption{
+            color:black;
+         }
+         a.caption:visited{
+            color:brown;
+         }
+         a.menubar{
+            color:gray;
+         }
+   </style>
 </head>
 
 <body>
