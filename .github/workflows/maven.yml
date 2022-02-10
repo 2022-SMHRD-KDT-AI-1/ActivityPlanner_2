@@ -23,5 +23,5 @@ jobs:
         MAVEN_USERNAME : ${{secrets.MAVEN_USERNAME}}
         MAVEN_PASSWORD : ${{secrets.MAVEN_PASSWORD}}
         MAVEN_URL : ${{secrets.MAVEN_URL}}
-      run: mvn tomcat7:deploy --file ActivityPlan/pom.xml -Dmy.url=$MAVEN_URL -Dmy.username=$MAVEN_USERNAME -Dmy.password=$MAVEN_PASSWORD
+      run: mvn tomcat7:deploy --file pom.xml -Dmy.url=$MAVEN_URL -Dmy.username=$MAVEN_USERNAME -Dmy.password=$MAVEN_PASSWORD
 
