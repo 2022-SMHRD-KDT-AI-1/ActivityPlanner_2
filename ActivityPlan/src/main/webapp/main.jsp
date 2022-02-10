@@ -78,6 +78,7 @@
    ArrayList<ActivityDTO> i_list = dao.showList("2"); // 인턴 랜덤
    ArrayList<ActivityDTO> l_list = dao.showList("3"); // 강연 랜덤
    %>
+  
    <!-- ===== FLOW ===== -->
    <div id="contentFlow" class="ContentFlow">
       <!-- should be place before flow so that contained images will be loaded first -->
@@ -87,15 +88,16 @@
 
       <!-- 공모전 -->
       <div class="flow">
+       <h3><%= c_list.size() %></h3>
          <%
             for (int i = 0; i < 10; i++) {
             int j = (int) (Math.random() * 100);
          %>
 
          <div class="item">
-            <img class="content" id="ci<%=i %>" src="<%=c_list.get(j).getAct_poster()%>" /> <a
-               href="detail.jsp?act_seq=<%=c_list.get(j).getAct_seq()%>"><div
-                  class="caption" id="ct<%=i %>"><%=c_list.get(j).getAct_name()%></div></a>
+            <img class="content" id="ci<%=i %>" src="<%=c_list.get(j).getAct_poster()%>" /> 
+            <a href="detail.jsp?act_seq=<%=c_list.get(j).getAct_seq()%>">
+               <div class="caption" id="ct<%=i %>"><%=c_list.get(j).getAct_name()%></div></a>
          </div>
          <%
             }
